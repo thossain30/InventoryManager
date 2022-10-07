@@ -8,9 +8,9 @@ app.use(cors()); // This enables CORS middleware and will allow my server to tak
 app.use(express.json());
 
 // Routes
-// const pokemonRouter = require('./routes/pokemon.route.js');
-// app.use('/pokemon', pokemonRouter);
-// app.use('/trainers', require('./routes/trainer.route.js')); // You can do it on one line
+
+const carRouter = require('./Routes/car.route');
+app.use('/car', carRouter);
 
 const connectToMongo = async () => {
     try {
