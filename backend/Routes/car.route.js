@@ -24,7 +24,7 @@ router.get('/:id', validateObjectId, async (req, res) => {
         const car = await findCarById(req.params.id);
         res.json(car);
     } catch (err) {
-        // Rejected Promise AKA no Csr found
+        // Rejected Promise AKA no Car found
         console.log(err);
         res.status(err?.status ?? 500).json(err);
     }
@@ -53,7 +53,7 @@ router.put('/:id', validateObjectId, async (req, res) => {
     }
 });
 
-// DELETE A POKEMON
+// DELETE A CAR
 router.delete('/:id', validateObjectId, async (req, res) => {
     try {
         await deleteCarById(req.params.id);

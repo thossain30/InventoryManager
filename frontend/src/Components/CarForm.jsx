@@ -98,7 +98,7 @@ export const CarForm = ({setCarList}) => {
                         id="car-price"
                         value={carData.carPrice}
                         onChange={e => setCarData({...carData, carPrice: e.target.value})}
-                        placeholder="Model Year"
+                        placeholder="Price"
                     />
                 </div>
             </div>
@@ -119,7 +119,7 @@ export const CarForm = ({setCarList}) => {
 
             <div>
                 <button type="reset" onClick={handleClear}>Clear</button>
-                <button>Submit</button>
+                <button onClick={handleSubmit}>Submit</button>
             </div>
         </form>
     )
