@@ -15,6 +15,9 @@ export const AppNav = () => {
                     <Link to="/about" className="nav-link">About</Link>
                 </NavItem>
                 <NavItem>
+                    <Link to="/car" className="nav-link">Car List</Link>
+                </NavItem>
+                <NavItem>
                     <Link to="/contact" className="nav-link">Contact Us</Link>
                 </NavItem>
             </NavSection>

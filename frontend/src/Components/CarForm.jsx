@@ -77,7 +77,7 @@ export const CarForm = ({setCarList}) => {
             <div>
                 <div>
                     <label htmlFor="model-name"> Model Name: </label>
-                    <select id="model-name" onChange={e => setPokemonData({...carData, modelName: e.target.value})}>
+                    <select id="model-name" onChange={e => setCarData({...carData, modelName: e.target.value})}>
                             {modelTypes}
                     </select>
                 </div>

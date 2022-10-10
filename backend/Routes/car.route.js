@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { findAllCars, findCarById, createCar, updateCar, deleteCarbyId } = require('../Controllers/car.controller');
+const { findAllCars, findCarById, createCar, updateCar, deleteCarById } = require('../Controllers/car.controller');
 const mongoose = require('mongoose');
 
 // Validate ObjectId middleware
