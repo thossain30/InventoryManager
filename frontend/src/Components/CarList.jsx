@@ -7,7 +7,6 @@ const Car = ({car : {model, price, color, imageUrl}}) => {
         <tr>
             <td className="row-item">{model?.name}</td>
             <td className="row-item">{model?.year}</td>
-            <td className="row-item">{price}</td>
             <td className="row-item">{color}</td>
             <td className="row-item">{price}</td>
             <td className="row-item"><img height="100" src={imageUrl} alt={model?.name}/></td>

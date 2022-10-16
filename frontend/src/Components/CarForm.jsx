@@ -31,19 +31,19 @@ const colors = [
 
 export const CarForm = ({setCarList}) => {
     const [carData, setCarData] = useState({
-        modelName: '',
-        modelYear: null,
+        modelName: "",
+        modelYear: 0,
         carPrice: null,
-        carColor: '',
+        carColor: "",
         imageURL: null
     });
 
     const handleClear = () => {
         setCarData({
-            modelName: '',
-            modelYear: null,
+            modelName: "",
+            modelYear: 0,
             carPrice: null,
-            carColor: '',
+            carColor: "",
             imageURL: null
         });
     }
@@ -73,7 +73,7 @@ export const CarForm = ({setCarList}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="car-form">
             <div>
                 <div>
                     <label htmlFor="model-name"> Model Name: </label>
