@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios"
+import Button from "@mui/material/Button"
 
 const modelTypes = [
     <option>Please select a model</option>,
@@ -75,7 +76,7 @@ export const CarForm = ({setCarList}) => {
     return (
         <form onSubmit={handleSubmit} className="car-form">
             <div>
-                <div>
+                <div className="Two-items">
                     <label htmlFor="model-name"> Model Name: </label>
                     <select id="model-name" onChange={e => setCarData({...carData, modelName: e.target.value})}>
                             {modelTypes}
@@ -118,8 +119,8 @@ export const CarForm = ({setCarList}) => {
             </div>
 
             <div>
-                <button type="reset" onClick={handleClear}>Clear</button>
-                <button onClick={handleSubmit}>Submit</button>
+                <Button variant="outlined" sx={{mr: 4}} type="reset" onClick={handleClear}>Clear</Button>
+                <Button variant="contained" onClick={handleSubmit}>Submit</Button>
             </div>
         </form>
     )
