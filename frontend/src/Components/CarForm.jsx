@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios"
 import Button from "@mui/material/Button"
+import { TextField } from "@mui/material";
+import {Select} from "@mui/material";
 
 const modelTypes = [
     <option>Please select a model</option>,
@@ -33,7 +35,7 @@ const colors = [
 export const CarForm = ({setCarList}) => {
     const [carData, setCarData] = useState({
         modelName: "",
-        modelYear: 0,
+        modelYear: null,
         carPrice: null,
         carColor: "",
         imageURL: null
@@ -42,7 +44,7 @@ export const CarForm = ({setCarList}) => {
     const handleClear = () => {
         setCarData({
             modelName: "",
-            modelYear: 0,
+            modelYear: null,
             carPrice: null,
             carColor: "",
             imageURL: null
@@ -77,18 +79,23 @@ export const CarForm = ({setCarList}) => {
         <form onSubmit={handleSubmit} className="car-form">
             <div>
                 <div className="Two-items">
-                    <label htmlFor="model-name"> Model Name: </label>
-                    <select id="model-name" onChange={e => setCarData({...carData, modelName: e.target.value})}>
-                            {modelTypes}
-                    </select>
+                    <Select
+                        labelId="model-name" 
+                        value={modelTypes}
+                        onChange={e => setCarData({...carData, modelName: e.target.value})}
+                        label="Age" 
+                    >
+                            
+                    </Select>
                 </div>
                 <div>
-                    <label htmlFor="model-year"> Model Year: </label>
-                    <input 
+                    <TextField
+                        label="Model Year"
+                        variant="filled"
                         id="model-year"
                         value={carData.modelYear}
                         onChange={e => setCarData({...carData, modelYear: e.target.value})}
-                        placeholder="Model Year"
+                        placeholder="0"
                     />
                 </div>
             </div>
