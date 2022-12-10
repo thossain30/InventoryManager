@@ -1,11 +1,12 @@
 import { useState } from "react";
 import axios from "axios"
 import Button from "@mui/material/Button"
-import { TextField } from "@mui/material";
-import {Select} from "@mui/material";
+import { FormControl, InputLabel, TextField } from "@mui/material";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import {MenuItem} from "@mui/material";
+import { Box } from "@mui/system";
 
 const modelTypes = [
-    <option>Please select a model</option>,
     <option>Avalon</option>,
     <option>Camry</option>,
     <option>Corolla</option>,
@@ -79,14 +80,24 @@ export const CarForm = ({setCarList}) => {
         <form onSubmit={handleSubmit} className="car-form">
             <div>
                 <div className="Two-items">
+                    <FormControl style={{minWidth: 150}}>
+                    <InputLabel>Model Types</InputLabel>
                     <Select
-                        labelId="model-name" 
-                        value={modelTypes}
-                        onChange={e => setCarData({...carData, modelName: e.target.value})}
-                        label="Age" 
+                        labelId="model-name"
+                        label="Model Type"
+                        value={carData.modelName}
+                        defaultValue={"Select a Model"}
+                        onChange={e => setCarData({...carData, modelName: e.target.value})} 
                     >
-                            
+                        {modelTypes.map((element) => {
+                            return (
+                                <MenuItem value={element.props.children} key={element.props.children}>
+                                    {element.props.children}
+                                </MenuItem>
+                            );
+                        })}
                     </Select>
+                    </FormControl>
                 </div>
                 <div>
                     <TextField
