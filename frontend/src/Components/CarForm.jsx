@@ -23,7 +23,6 @@ const modelTypes = [
 ];
 
 const colors = [
-    <option>Pick a Color</option>,
     <option>Classic Silver Metallic</option>,
     <option>Magnetic Gray Metallic</option>,
     <option>Supersonic Red</option>,
@@ -112,28 +111,53 @@ export const CarForm = ({setCarList}) => {
             </div>
             <div>
                 <div>
-                    <label htmlFor="car-price"> Car Price (in $): </label>
-                    <input 
+                    <TextField 
+                        label="Car Price (in $)"
+                        variant="filled"
                         id="car-price"
                         value={carData.carPrice}
                         onChange={e => setCarData({...carData, carPrice: e.target.value})}
-                        placeholder="Price"
                     />
                 </div>
             </div>
             <div>
                 <div>
-                    <label htmlFor="car-color"> Car Color: </label>
-                    <select id="car-color" onChange={e => setCarData({...carData, carColor: e.target.value})}>
-                            {colors}
-                    </select>
+                    <div>
+                        <FormControl style={{minWidth: 150}}>
+                        <InputLabel>Car Color</InputLabel>
+                        <Select
+                            labelId="car-color"
+                            label="Car Color"
+                            value={carData.carColor}
+                            defaultValue={"Select a Color"}
+                            onChange={e => setCarData({...carData, carColor: e.target.value})} 
+                        >
+                            {colors.map((element) => {
+                                return (
+                                    <MenuItem value={element.props.children} key={element.props.children}>
+                                        {element.props.children}
+                                    </MenuItem>
+                                );
+                            })}
+                        </Select>
+                        </FormControl>
+                    </div>
                 </div>
             </div>
             <div>
-                <div>
+                <FormControl style={{minWidth: 400}}>
+                <TextField 
+                    label="Image URL"
+                    variant="filled"
+                    id="car-price"
+                    value={carData.carPrice}
+                    onChange={e => setCarData({...carData, carPrice: e.target.value})}
+                />
+                </FormControl>
+                {/* <div>
                     <label htmlFor="image-url">Image URL: </label>
                     <input id="image-url" value={carData.imageUrl} onChange={e => setCarData({...carData, imageURL: e.target.value})}/>
-                </div>
+                </div> */}
             </div>
 
             <div>
